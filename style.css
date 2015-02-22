@@ -10,13 +10,17 @@ button{
 	font-size: 5vmin;
 }
 .gamePiece{
+	color: #F0F0F0;
 	width: 20%;
 	height: 20%;
 	font-size: 7vmin;
     font-family: 'Architects Daughter';
 	text-align: center;
-	border: black solid 1px;
-	background-color: #d3d3d3;
+	background-color: #7a7a7a;
+}
+
+.gamePiece[hj-value=" "]{
+	visibility: hidden;
 }
 
 .valid{
