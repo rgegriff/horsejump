@@ -1,0 +1,28 @@
+table{
+	height: 90vmin;
+	width: 90vmin;
+	margin: auto;
+	margin-right: auto;
+}
+
+button{
+	height: 8vmin;
+	font-size: 5vmin;
+}
+.gamePiece{
+	width: 20%;
+	height: 20%;
+	font-size: 7vmin;
+    font-family: 'Architects Daughter';
+	text-align: center;
+	border: black solid 1px;
+	background-color: #d3d3d3;
+}
+
+.valid{
+	background-color: #3d3d3d !important;
+}
+
+.circle{
+	border-radius: 50%;
+}
