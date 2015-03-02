@@ -5,9 +5,9 @@ table{
 	margin-right: auto;
 }
 
-button{
-	height: 8vmin;
-	font-size: 5vmin;
+btn{
+    padding-left:8px;
+    padding-right:8px;
 }
 .gamePiece{
 	color: #F0F0F0;
