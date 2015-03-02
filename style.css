@@ -1,6 +1,6 @@
 table{
-	height: 90vmin;
-	width: 90vmin;
+	height: 85vmin;
+	width: 85vmin;
 	margin: auto;
 	margin-right: auto;
 }
@@ -13,6 +13,7 @@ button{
 	color: #F0F0F0;
 	width: 20%;
 	height: 20%;
+	margin: 10px;
 	font-size: 7vmin;
     font-family: 'Architects Daughter';
 	text-align: center;
@@ -29,4 +30,14 @@ button{
 
 .circle{
 	border-radius: 50%;
+}
+
+
+.flip {
+	backface-visibility: hidden;
+	transform: rotateY(180deg);
+    transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
 }

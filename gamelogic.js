@@ -43,6 +43,12 @@ function shuffle(iterations){
 	}
 }
 
+function reset(){
+	var table_elem = document.getElementsByTagName("table")[0]
+	table_elem.innerHTML = "";
+	setUp();
+}
+
 function swap(elem){
 	var blank_elem = getBlankElem();
 	var blank_val = blank_elem.textContent;
