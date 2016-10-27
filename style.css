@@ -41,3 +41,7 @@ btn{
 
 	position: relative;
 }
+
+.modal-backdrop {
+    z-index:0;
+}
