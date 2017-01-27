@@ -1,64 +1,212 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="http://bootswatch.com/simplex/bootstrap.min.css">
-		<!-- Latest compiled and minified JavaScript -->
-		<link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</button>
-					<span class="navbar-brand">Horse Jump</span>
-				</div>
-				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="#" onclick="reset();">Reset</a></li>
-						<li><a href="#" onclick="shuffle(25);">Shuffle</a></li>
-						<li><a type="button" href="#" data-toggle="modal" data-target="#instructions">Instructions</a></li>
-					</ul>
-					</div><!--/.nav-collapse -->
-				</div>
-			</nav>
-			<div class="container">
-				<table>
-				</table>
-			</div>
-			<div class="modal fade" id="instructions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title" id="myModalLabel">Horsejump Instructions</h4>
-						</div>
-						<div class="modal-body">
-						    <p>
-							    Horsejump is a twist on the old sliding block number puzzles. The objective is to sort the pieces such that they are in numerical order from 1 through 24. The pieces, however, move like the knights from chess. All valid moves are highlighted as a different color from the rest of the pieces.
-							</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Got it!</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-			<script src="gamelogic.js"></script>
-		</body>
-	</html>
+<!DOCTYPE html>
+<!--  This site was created in Webflow. http://www.webflow.com -->
+<!--  Last Published: Wed Jan 25 2017 18:53:54 GMT+0000 (UTC)  -->
+<html data-wf-page="5888230f06aaea7e3986a94d" data-wf-site="5888230f06aaea7e3986a94c">
+<head>
+  <meta charset="utf-8">
+  <title>Horse Jump</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/horse-jump-992af1.webflow.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script type="text/javascript">
+    WebFont.load({
+      google: {
+        families: ["Varela Round:400","Croissant One:regular","Acme:regular"]
+      }
+    });
+  </script>
+  <script src="js/modernizr.js" type="text/javascript"></script>
+  <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
+</head>
+<body class="body-background">
+  <div class="w-embed">
+    <style>
+      .playfield:before {
+          content:     "";
+          display:     block;
+          padding-top: 100%; /* initial ratio of 1:1*/
+      }
+    </style>
+  </div>
+  <div class="horsejump-navbar w-nav" data-animation="default" data-collapse="tiny" data-duration="400">
+    <div class="w-container"><a class="w-nav-brand" href="#"><h1 class="brand-title">Horse Jump</h1></a>
+      <nav class="w-nav-menu" role="navigation"><a class="w-nav-link" href="#">Instructions</a>
+      </nav>
+      <div class="w-nav-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div class="w-container">
+    <div class="w-row">
+      <div class="w-col w-col-7 w-col-small-6">
+        <div class="playfield">
+          <div class="playfield-contents">
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">1</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">2</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">3</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">4</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">5</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">6</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">7</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">8</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">9</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">10</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">11</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">12</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">13</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">14</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">15</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">16</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">17</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">18</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">19</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">20</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">21</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">22</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">23</div>
+              </div>
+            </div>
+            <div class="playfield-space">
+              <div class="playfield-piece">
+                <div class="playfield-piece-label">24</div>
+              </div>
+            </div>
+            <div class="playfield-space"></div>
+          </div>
+        </div>
+      </div>
+      <div class="w-col w-col-5 w-col-small-6">
+        <div class="controls">
+          <ul class="w-list-unstyled">
+            <li>
+              <div class="w-row">
+                <div class="w-clearfix w-col w-col-8 w-col-small-6 w-col-tiny-6">
+                  <h3 class="controls-label">Moves</h3>
+                </div>
+                <div class="w-clearfix w-col w-col-4 w-col-small-6 w-col-tiny-6">
+                  <h3 id="moves-value" class="controls-value">0</h3>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="w-row">
+                <div class="w-clearfix w-col w-col-8 w-col-medium-8 w-col-small-6 w-col-tiny-6">
+                  <h3 class="controls-label">Time</h3>
+                </div>
+                <div class="w-clearfix w-col w-col-4 w-col-medium-4 w-col-small-6 w-col-tiny-6">
+                  <h3 id="time-value" class="controls-value">00:00</h3>
+                </div>
+              </div>
+            </li>
+            <li class="controls-buttons"><a class="w-button" href="#" onClick="reset();">RESET</a><a class="w-button" href="#" onClick="shuffle(24);">New Game</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/move.js/0.5.0/move.min.js"></script>-->
+  <script type="text/javascript" src="js/gamelogic.js"></script>
+  <script type="text/javascript">
+    $(reset);
+  </script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>
