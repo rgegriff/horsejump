@@ -281,7 +281,7 @@ GAME.swap = function (piece_value) {
 
 GAME.pieceClicked = function () {
   var val = this.getAttribute("hj-value");
-  if (val == " ") {
+  if (val == " " || !GAME.state.running) {
     return;
   }
   val = parseInt(val);
@@ -313,7 +313,7 @@ GAME.dance = function () {
     pieces.forEach(function (piece) {
       move(piece)
           .ease(easings[Math.random() * easings.length])
-          .x(Math.random() * 120).y(Math.random() * 120).end();
+          .x((Math.random() * 120)-60).y((Math.random() * 120)-60).end();
     });
   }
 
