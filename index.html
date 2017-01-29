@@ -46,127 +46,6 @@
       <div class="w-col w-col-7 w-col-small-6">
         <div class="playfield">
           <div class="playfield-contents">
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">1</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">2</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">3</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">4</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">5</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">6</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">7</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">8</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">9</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">10</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">11</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">12</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">13</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">14</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">15</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">16</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">17</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">18</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">19</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">20</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">21</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">22</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">23</div>
-              </div>
-            </div>
-            <div class="playfield-space">
-              <div class="playfield-piece">
-                <div class="playfield-piece-label">24</div>
-              </div>
-            </div>
-            <div class="playfield-space"></div>
           </div>
         </div>
       </div>
@@ -193,7 +72,7 @@
                 </div>
               </div>
             </li>
-            <li class="controls-buttons"><a class="w-button" href="#" onClick="reset();">RESET</a><a class="w-button" href="#" onClick="shuffle(24);">New Game</a>
+            <li class="controls-buttons"><a class="w-button" href="#" onClick="GAME.reset();">RESET</a><a class="w-button" href="#" onClick="GAME.newGame();">New Game</a>
             </li>
           </ul>
         </div>
@@ -202,10 +81,10 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
-  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/move.js/0.5.0/move.min.js"></script>-->
-  <script type="text/javascript" src="js/gamelogic.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/move.js/0.5.0/move.min.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
   <script type="text/javascript">
-    $(reset);
+    $(GAME.reset);
   </script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>

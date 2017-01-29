@@ -23,7 +23,7 @@ function timeConversion(millisec) {
 
 function updateTimer(){
 	if(!gamestarted || started_time==null){
-		return // don't touch timer if game isn't running;
+		return; // don't touch timer if game isn't running;
 	}
 	var timer_elem = document.getElementById("time-value");
 	var elapsed = new Date() - started_time;
@@ -47,6 +47,20 @@ function resetMoveCount(){
 	var movecount_element = document.getElementById("moves-value");
 	movecount = 0;
 	movecount_element.innerText = movecount;
+}
+
+function isPuzzleSolved(){
+	var pieces = getAllGamePieces();
+	for(var p=0; p<pieces.length; p++){
+		var piece = pieces[p];
+		var piece_value = piece.innerText;
+		if(p<24){
+			if(piece_value!=p+1){return false;}
+		}else{
+			if(piece_value!=""){return false;}
+		}
+	}
+	return true;
 }
 
 
@@ -90,11 +104,14 @@ function getCoordsFromElem(elem){
 function shuffle(iterations){
 	resetTimer();
 	reset();
+	setValids(getCoordsFromElem(getBlankElem()));
 	started_time = new Date();
 	for(var i=0; i<iterations; i++){
 		var valids = getAllValidElems();
 		var valid = valids[Math.floor(Math.random()*valids.length)];
-		getElemByCoords(valid).click();
+		swap( getElemByCoords(valid) );
+		clearValids();
+		setValids( getCoordsFromElem(getBlankElem()) );
 	}
 	movecount = 0
 	gamestarted = true;
@@ -102,13 +119,18 @@ function shuffle(iterations){
 	game_timer = window.setInterval(updateTimer, 500);
 }
 
-function reset(){
+function haltGame(){
 	window.clearInterval(game_timer);
 	game_timer = null;
 	started_time = null;
-    resetMoveCount();
     gamestarted = false;
     moving = false;
+}
+
+
+function reset(){
+	haltGame();
+	resetMoveCount();
     resetTimer();
 	var table_elem = document.getElementsByClassName("playfield-contents")[0]
 	table_elem.innerHTML = "";
@@ -148,7 +170,7 @@ function setValids(blank_coords){
 
 function getValidMovesFromCoords(coord_obj){
 	var cCO = createCoordObj;
-	var jumps = [
+	var jumps =[ // This is a list of reletive [x,y] coords that can be added to the current [x,y] to find "knight's moves"
 	  [-1, -2], 
 	  [1,-2],
 	  [-2,-1],
@@ -157,7 +179,7 @@ function getValidMovesFromCoords(coord_obj){
 	  [2,1],
 	  [-1,2],
 	  [1,2]
-	]
+	];
 	var len_jumps = jumps.length;
 	var moves = [];
 	for(var i=0; i<len_jumps; i++){
@@ -171,7 +193,7 @@ function getValidMovesFromCoords(coord_obj){
 }
 
 function coordsWithinBounds(coord_obj){
-	result = true
+	result = true;
 	if(coord_obj.x < 0 || coord_obj.x >= 5){
 		result = false
 	}
@@ -185,7 +207,11 @@ function handleClick(){
 	if(this.classList.contains("valid")){
 	    swap(this);
 	    clearValids();
-	    setValids(getCoordsFromElem(getBlankElem()));
+	    if(isPuzzleSolved()){
+	    	haltGame();
+	    }else{
+	        setValids(getCoordsFromElem(getBlankElem()));
+	    }
 	}
 }
 
@@ -199,7 +225,6 @@ function pieceLabel(text){
 
 function setUp(){
 	var table = document.getElementsByClassName("playfield-contents")[0];
-	var table_rows = [[],[],[],[],[]];
 	var _cnt = 0;
 	for(y=0; y<=4; y++){
 
@@ -227,5 +252,5 @@ function setUp(){
 			table.appendChild(space);
 		}
 	}
-	setValids(getCoordsFromElem(getBlankElem()));
+	//setValids(getCoordsFromElem(getBlankElem()));
 }
