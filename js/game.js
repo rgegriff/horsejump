@@ -221,6 +221,7 @@ GAME.reset = function () {
   GAME.scorekeeping.resetMoveCounter();
   GAME.state.running = false;
   GAME.stopDance();
+  GAME.state.animating = false;
   GAME.state.board.order = [
     1, 2, 3, 4, 5,
     6, 7, 8, 9, 10,
